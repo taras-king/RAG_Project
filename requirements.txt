@@ -1,0 +1,6 @@
+
+PyMuPDF
+numpy
+sentence-transformers
+langchain-text-splitters
+ollama
