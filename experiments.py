@@ -1,4 +1,3 @@
-
 import json
 import time
 from pathlib import Path
@@ -16,7 +15,7 @@ from ollama import chat
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
-RESULT_FILE = BASE_DIR / "results" / "experiments.json"
+RESULT_FILE = BASE_DIR / "results" / "experiments_v2.json"
 
 EMBEDDING_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 LLM_MODEL = "qwen3:4b"
@@ -173,6 +172,7 @@ for chunk_size, chunk_overlap, top_k in CONFIGS:
             messages=[
                 {"role": "user", "content": prompt}
             ],
+            think=False,
             options={"temperature": 0}
         )
 

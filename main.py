@@ -134,12 +134,17 @@ for rank, index in enumerate(top_indices, start=1):
 # ==========================================
 
 context = "\n\n".join(
-    all_chunks[index]["text"] for index in top_indices
+    f"Джерело: {all_chunks[index]['source']}\n"
+    f"Сторінка: {all_chunks[index]['page']}\n"
+    f"Текст: {all_chunks[index]['text']}"
+    for index in top_indices
 )
 
 prompt = f"""
+Відповідай українською мовою.
 Використовуй тільки інформацію з контексту.
 Якщо відповіді немає в контексті, повідом про це.
+Не вигадуй факти.
 Відповідай коротко та зрозуміло.
 
 Контекст:
