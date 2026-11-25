@@ -1,4 +1,3 @@
-
 # RAG System for PDF Documents
 
 A simple Retrieval-Augmented Generation (RAG) system that answers questions based on Ukrainian-language PDF documents.
