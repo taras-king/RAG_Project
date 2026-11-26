@@ -81,7 +81,7 @@ print("\n[2] CHUNKING")
 print(f"Chunk Size: {CHUNK_SIZE}")
 print(f"Chunk Overlap: {CHUNK_OVERLAP}")
 print(f"Створено чанків: {len(all_chunks)}")
-print(f"Приклад чанка: {all_chunks[0]['text'][:150]}...")
+print(f"Приклад чанка: {all_chunks[0]['text']}")
 
 
 # ==========================================
@@ -90,7 +90,10 @@ print(f"Приклад чанка: {all_chunks[0]['text'][:150]}...")
 
 model = SentenceTransformer(MODEL_NAME)
 
-chunk_texts = [item["text"] for item in all_chunks]
+chunk_texts = []
+
+for item in all_chunks:
+    chunk_texts.append(item["text"])
 
 embeddings = model.encode(
     chunk_texts,
